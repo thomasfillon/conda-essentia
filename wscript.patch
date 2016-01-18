@@ -1,0 +1,11 @@
+--- src/wscript	2014-11-19 11:23:17.000000000 +0100
++++ src/wscript	2016-01-18 10:53:28.000000000 +0100
+@@ -222,7 +222,7 @@
+ 
+     # TODO: recursive includes are needed only for the algorithms, not for the base
+     #       library. See if there's no way to split them.
+-    ctx.env.INCLUDES = [ '.', 'essentia', 'essentia/scheduler', 'essentia/streaming',
++    ctx.env.INCLUDES += [ '.', ctx.env.PREFIX + '/include', 'essentia', 'essentia/scheduler', 'essentia/streaming',
+                          'essentia/streaming/algorithms', 'essentia/utils',
+                          '3rdparty' ]
+ 

@@ -1,0 +1,35 @@
+package:
+  name: essentia
+  version: 2.1_beta2
+
+source:
+  fn:  essentia_v2.1_beta2.tar.gz
+  url: https://github.com/MTG/essentia/archive/v2.1_beta2.tar.gz
+  sha256: ddf72ef5c2e3f8bd65dd7e645c14a01a38e1c32ee0890bd2565e693d5c454953
+  patches:
+    - wscript.patch
+
+requirements:
+  build:
+    - python
+    - numpy
+    - libpng
+    - freetype
+    - gdbm
+    - sqlite
+    - readline
+    - yaml
+
+  run:
+    - python
+    - numpy
+    - libpng
+    - freetype
+    - gdbm
+    - sqlite
+    - readline
+    - yaml
+
+about:
+  home: http://essentia.upf.edu/
+  license: Affero GPL 3.0
