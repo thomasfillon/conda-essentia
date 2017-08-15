@@ -2,12 +2,17 @@
 
 set -x -e
 
-cp $RECIPE_DIR/waf-1.8.18 $SRC_DIR/waf
-python waf --version
-
-python waf configure \
+./waf configure \
     --mode=release \
-    --prefix="${PREFIX}"
+    --prefix="${PREFIX}" \
+    --with-python \
+    --with-cpptests\
+    --with-vamp
 
-python waf
-python waf install
+./waf
+./waf install
+# Tests
+./waf run_tests
+# Almost all python tests are running but there is some errors (most of them are precision errors)
+# uncomment the following to check python wrapper during build
+#./waf run_python_tests

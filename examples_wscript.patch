@@ -1,0 +1,13 @@
+diff --git a/src/examples/wscript b/src/examples/wscript
+index c33aed0..9d3f9c5 100644
+--- a/src/examples/wscript
++++ b/src/examples/wscript
+@@ -165,7 +165,7 @@ def build(ctx):
+         if sys.platform == 'darwin':
+             install_path = os.environ['HOME'] + '/Library/Audio/Plug-Ins/Vamp'
+         elif sys.platform.startswith('linux'):
+-            install_path = '/usr/local/lib/vamp'
++            install_path = '${PREFIX}/lib/vamp'
+         else:
+             install_path = None
+ 

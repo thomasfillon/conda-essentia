@@ -1,34 +1,49 @@
 package:
   name: essentia
-  version: 2.1_beta2
+  version: 2.1_beta4
 
 source:
-  fn:  essentia_v2.1_beta2.tar.gz
-  url: https://github.com/MTG/essentia/archive/v2.1_beta2.tar.gz
-  sha256: ddf72ef5c2e3f8bd65dd7e645c14a01a38e1c32ee0890bd2565e693d5c454953
-  patches:
-    - wscript.patch
+  git_url: https://github.com/MTG/essentia.git
+  git_rev: master
 
+  patches:
+    - examples_wscript.patch
+     
 requirements:
   build:
     - python
     - numpy
+    - ffmpeg
+    - gcc
+    - fftw
+    - ipython
     - libpng
     - freetype
     - gdbm
     - sqlite
     - readline
     - yaml
-
+    - pyyaml
   run:
     - python
     - numpy
+    - ffmpeg
     - libpng
     - freetype
     - gdbm
     - sqlite
     - readline
     - yaml
+    - pyyaml
+
+# Almost all python tests are running but there is some errors (most of them are precision errors)
+# uncomment the following to check python wrappers during build
+#test:
+#  source_files:
+#    - test/src/unittest
+#    - test/audio
+#  commands:
+#    - python test/src/unittest/all_tests.py
 
 about:
   home: http://essentia.upf.edu/
